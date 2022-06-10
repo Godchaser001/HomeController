@@ -24,10 +24,12 @@ namespace StaffsDataBase2.Controllers
                 staffs = _staffsRepository.GetStaffsId(1),
                 PageTitle = "StaffsDataBase",
             };
+
             return View(homeDetailsViewModel);  
             
             
             
+
         }
     }
 }
