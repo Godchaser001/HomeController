@@ -35,7 +35,16 @@ namespace StaffsDataBase2
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            } 
+
+	   else
+            {
+                app.UseExceptionHandler("/Error");
+                //app.UseStatusCodePages(); 
+                app.UseStatusCodePagesWithRedirects("/Error/{0}");
             }
+	
+		
             app.UseStaticFiles();
             app.UseRouting();
             app.UseEndpoints(endpoints =>
