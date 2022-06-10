@@ -1,0 +1,30 @@
+using Microsoft.AspNetCore.Mvc;
+using StaffsDataBase2.Models;
+using StaffsDataBase2.ViewModel;
+
+namespace StaffsDataBase2.Controllers
+{
+    public class HomeController : Controller
+    {
+        private IStaffsRepository _staffsRepository;
+        public HomeController(IStaffsRepository staffsRepository)
+        {
+            _staffsRepository = staffsRepository;
+        }
+        public ViewResult  Index()
+        {
+            var model = _staffsRepository.GetAllStaffs();
+            return View(model);
+        }
+
+        public ViewResult Details()
+        {
+            HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
+            {
+                staffs = _staffsRepository.GetStaffsId(1),
+                PageTitle = "StaffsDataBase",
+            };
+            return View(homeDetailsViewModel); 
+        }
+    }
+}
