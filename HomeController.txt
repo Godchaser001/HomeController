@@ -25,6 +25,15 @@ namespace StaffsDataBase2.Controllers
                 PageTitle = "StaffsDataBase",
             };
             return View(homeDetailsViewModel); 
+
+        public ViewResult Details()
+        {
+            HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
+            {
+                staffs = _staffsRepository.GetStaffsId(1),
+                PageTitle = "StaffsDataBase",
+            };
+            return View(homeDetailsViewModel);
         }
     }
 }
